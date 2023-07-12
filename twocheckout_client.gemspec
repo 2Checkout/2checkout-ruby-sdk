@@ -4,9 +4,9 @@ $:.unshift(File.join(File.dirname(__FILE__), 'lib'))
 Gem::Specification.new do |s|
   s.platform    = Gem::Platform::RUBY
   s.name        = 'twocheckout_client'
-  s.version     = '0.0.1'
+  s.version     = '1.2.0'
   s.summary     = '2Checkout Ruby SDK'
-  s.description = '0.0.1'
+  s.description = '1.2.0'
   s.summary     = '2Checkout Ruby SDK'
   s.author        = "2Checkout"
   s.email         = 'supportplus@2checkout.com'
