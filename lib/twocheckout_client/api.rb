@@ -67,7 +67,7 @@ module TwocheckoutClient
 
     def hmac(date)
       data = String(@config[:merchant_code].length) + @config[:merchant_code] + String(date.length) + date
-      OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('md5'), @config[:secret_key].encode("ASCII"), data)
+      OpenSSL::HMAC.hexdigest(OpenSSL::Digest.new('sha256'), @config[:secret_key].encode("ASCII"), data)
     end
 
     def build_headers
@@ -76,7 +76,7 @@ module TwocheckoutClient
       {
         'Content-Type' => "application/json",
         'Accept' => "application/json",
-        'X-Avangate-Authentication' => 'code="' + @config[:merchant_code] + '" date="' + date + '" hash="' + hash + '"'
+        'X-Avangate-Authentication' => 'code="' + @config[:merchant_code] + '" date="' + date + '" hash="' + hash + '" algo="sha256"' 
       }
     end
   end
